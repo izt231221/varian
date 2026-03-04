@@ -1,0 +1,40 @@
+app service
+app service plan
+application gateway
+automation account
+azure bot
+azure cosmos db
+azure cosmos db for mongodb
+azure cosmos db for PostgreSQL
+azure machine learning workspaces
+azure openai
+azure workbook
+bastion
+batch account
+communication service
+container app
+container app environment
+data collection rule
+dns forwarding ruleset
+dns private resolver
+document intelligence
+event grid and event hub
+foundry
+foundry project
+front door waf policy
+load balancer
+logic app
+nat gatweway
+restore point collection
+recovery services vault
+search service
+saas
+signalR
+smart detector alert sule
+shared dashboard
+speech service
+static web app
+stream analytics job
+webapp bot
+web pubsub service
+
