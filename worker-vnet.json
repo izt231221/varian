@@ -1,0 +1,102 @@
+{
+    "apiVersion": "2025-05-01",
+    "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/virtualNetworks/workers-vnet",
+    "name": "workers-vnet",
+    "type": "microsoft.network/virtualnetworks",
+    "location": "westus2",
+    "tags": {
+        "application": "databricks",
+        "databricks-environment": "true",
+        "businessunit": "ros",
+        "costcenter": "450808U31",
+        "costcenterowner": "michael.kenny@varian.com",
+        "environment": "intprod",
+        "product": "analytics",
+        "technicalowner": "sven.ehmes@varian.com",
+        "securityowner": "rakesh.sharma@varian.com"
+    },
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "235c97c4-6a88-4757-bc70-57ff0017a116",
+        "addressSpace": {
+            "addressPrefixes": [
+                "10.139.0.0/16"
+            ]
+        },
+        "privateEndpointVNetPolicies": "Disabled",
+        "subnets": [
+            {
+                "name": "public-subnet",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/virtualNetworks/workers-vnet/subnets/public-subnet",
+                "etag": "W/\"78ce31ed-561c-4220-9c5f-55153e58c78b\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "10.139.0.0/18",
+                    "networkSecurityGroup": {
+                        "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg"
+                    },
+                    "delegations": [],
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                },
+                "type": "Microsoft.Network/virtualNetworks/subnets"
+            },
+            {
+                "name": "private-subnet",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/virtualNetworks/workers-vnet/subnets/private-subnet",
+                "etag": "W/\"78ce31ed-561c-4220-9c5f-55153e58c78b\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "10.139.64.0/18",
+                    "networkSecurityGroup": {
+                        "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg"
+                    },
+                    "delegations": [],
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                },
+                "type": "Microsoft.Network/virtualNetworks/subnets"
+            }
+        ],
+        "virtualNetworkPeerings": [
+            {
+                "name": "peer-workers-vnet-vidadatabricksdev_vnet_mongo_vida",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/virtualNetworks/workers-vnet/virtualNetworkPeerings/peer-workers-vnet-vidadatabricksdev_vnet_mongo_vida",
+                "etag": "W/\"78ce31ed-561c-4220-9c5f-55153e58c78b\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "resourceGuid": "7c51881c-3bc3-0673-0668-ca8e62e2ffe9",
+                    "peeringState": "Initiated",
+                    "peeringSyncLevel": "RemoteNotInSync",
+                    "remoteVirtualNetwork": {
+                        "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/rg-mongo-vida/providers/Microsoft.Network/virtualNetworks/vnet_mongo_vida"
+                    },
+                    "allowVirtualNetworkAccess": true,
+                    "allowForwardedTraffic": true,
+                    "allowGatewayTransit": false,
+                    "useRemoteGateways": false,
+                    "doNotVerifyRemoteGateways": false,
+                    "peerCompleteVnets": true,
+                    "remoteAddressSpace": {
+                        "addressPrefixes": [
+                            "10.8.0.0/24"
+                        ]
+                    },
+                    "remoteVirtualNetworkAddressSpace": {
+                        "addressPrefixes": [
+                            "10.8.0.0/24"
+                        ]
+                    },
+                    "remoteVirtualNetworkEncryption": {
+                        "enabled": false,
+                        "enforcement": "AllowUnencrypted"
+                    },
+                    "routeServiceVips": {}
+                },
+                "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
+            }
+        ],
+        "enableDdosProtection": false
+    },
+    "etag": "W/\"78ce31ed-561c-4220-9c5f-55153e58c78b\""
+}
