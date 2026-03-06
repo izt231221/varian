@@ -1,0 +1,233 @@
+{
+    "apiVersion": "2025-05-01",
+    "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg",
+    "name": "workers-sg",
+    "type": "microsoft.network/networksecuritygroups",
+    "location": "westus2",
+    "tags": {
+        "application": "databricks",
+        "databricks-environment": "true",
+        "businessunit": "ros",
+        "costcenter": "450808U31",
+        "costcenterowner": "michael.kenny@varian.com",
+        "environment": "intprod",
+        "product": "analytics",
+        "technicalowner": "sven.ehmes@varian.com",
+        "securityowner": "rakesh.sharma@varian.com"
+    },
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "77d12891-0841-4f3f-9c55-f6b3cb18a484",
+        "securityRules": [
+            {
+                "name": "databricks-worker-to-worker",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg/securityRules/databricks-worker-to-worker",
+                "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\"",
+                "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Required for worker nodes communication within a cluster.",
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "destinationAddressPrefix": "VirtualNetwork",
+                    "access": "Allow",
+                    "priority": 200,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "databricks-control-plane-ssh",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg/securityRules/databricks-control-plane-ssh",
+                "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\"",
+                "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Required for Databricks control plane management of worker nodes.",
+                    "protocol": "TCP",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "22",
+                    "sourceAddressPrefix": "AzureDatabricks",
+                    "destinationAddressPrefix": "VirtualNetwork",
+                    "access": "Allow",
+                    "priority": 100,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "databricks-control-plane-worker-proxy",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg/securityRules/databricks-control-plane-worker-proxy",
+                "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\"",
+                "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Required for Databricks control plane management of worker nodes.",
+                    "protocol": "TCP",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "5557",
+                    "sourceAddressPrefix": "AzureDatabricks",
+                    "destinationAddressPrefix": "VirtualNetwork",
+                    "access": "Allow",
+                    "priority": 110,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            }
+        ],
+        "defaultSecurityRules": [
+            {
+                "name": "AllowVnetInBound",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg/defaultSecurityRules/AllowVnetInBound",
+                "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\"",
+                "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Allow inbound traffic from all VMs in VNET",
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "destinationAddressPrefix": "VirtualNetwork",
+                    "access": "Allow",
+                    "priority": 65000,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "AllowAzureLoadBalancerInBound",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg/defaultSecurityRules/AllowAzureLoadBalancerInBound",
+                "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\"",
+                "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Allow inbound traffic from azure load balancer",
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "*",
+                    "sourceAddressPrefix": "AzureLoadBalancer",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 65001,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "DenyAllInBound",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg/defaultSecurityRules/DenyAllInBound",
+                "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\"",
+                "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Deny all inbound traffic",
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "*",
+                    "sourceAddressPrefix": "*",
+                    "destinationAddressPrefix": "*",
+                    "access": "Deny",
+                    "priority": 65500,
+                    "direction": "Inbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "AllowVnetOutBound",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg/defaultSecurityRules/AllowVnetOutBound",
+                "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\"",
+                "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "destinationAddressPrefix": "VirtualNetwork",
+                    "access": "Allow",
+                    "priority": 65000,
+                    "direction": "Outbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "AllowInternetOutBound",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg/defaultSecurityRules/AllowInternetOutBound",
+                "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\"",
+                "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Allow outbound traffic from all VMs to Internet",
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "*",
+                    "sourceAddressPrefix": "*",
+                    "destinationAddressPrefix": "Internet",
+                    "access": "Allow",
+                    "priority": 65001,
+                    "direction": "Outbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            },
+            {
+                "name": "DenyAllOutBound",
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/networkSecurityGroups/workers-sg/defaultSecurityRules/DenyAllOutBound",
+                "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\"",
+                "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Deny all outbound traffic",
+                    "protocol": "*",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "*",
+                    "sourceAddressPrefix": "*",
+                    "destinationAddressPrefix": "*",
+                    "access": "Deny",
+                    "priority": 65500,
+                    "direction": "Outbound",
+                    "sourcePortRanges": [],
+                    "destinationPortRanges": [],
+                    "sourceAddressPrefixes": [],
+                    "destinationAddressPrefixes": []
+                }
+            }
+        ],
+        "subnets": [
+            {
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/virtualNetworks/workers-vnet/subnets/public-subnet"
+            },
+            {
+                "id": "/subscriptions/2a0da05e-e3c8-4e90-b39f-648655597ed9/resourceGroups/databricks-rg-VIDADataBricksDev-ikvnrhcdbmne6/providers/Microsoft.Network/virtualNetworks/workers-vnet/subnets/private-subnet"
+            }
+        ]
+    },
+    "etag": "W/\"b3071592-7416-45e1-b109-21807c171a62\""
+}
